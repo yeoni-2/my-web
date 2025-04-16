@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 애니메이션 예시</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            max-width: 800px;
+        }
+
+        .example {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #444;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        /* 예시 1: 크기 변화 */
+        .box-scale img {
+            width: 100px;
+            height: 100px;
+            /* background-color: #3498db; */
+            margin: 0 auto;
+            transition: transform 0.5s ease;
+        }
+        
+        .box-scale:hover img{
+            transform: scale(1.2);
+        }
+
+        /* 예시 2: 회전 */
+        .box-rotate img{
+            width: 100px;
+            height: 100px;
+            /* background-color: #e74c3c; */
+            margin: 0 auto;
+            transition: transform 1s ease;
+        }
+        
+        .box-rotate img:hover {
+            transform: rotate(360deg);
+        }
+
+        /* 예시 3: 이동 */
+        .box-translate img {
+            width: 100px;
+            height: 100px;
+            /* background-color: #2ecc71; */
+            margin: 0 auto;
+            transition: transform 0.2s ease;
+        }
+        
+        .box-translate:hover img{
+            transform: translateX(-40px);
+        }
+
+        /* 예시 4: @keyframes 애니메이션 */
+        .box-keyframes img {
+            width: 100px;
+            height: 100px;
+            /* background-color: #f39c12; */
+            margin: 0 auto;
+            animation: spin 2s infinite;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        /* 예시 5: 다중 변환 */
+        .box-multiple {
+            width: 100px;
+            height: 100px;
+            background-color: #0066cc;
+            margin: 0 auto;
+            transition: all 0.5s ease;
+        }
+        
+        .box-multiple:hover {
+            width: 150px;
+            height: 100px;
+            transform: rotate(45deg) scale(1.2);
+            background-color: lightblue;
+            border-radius: 50%;
+        }
+
+        /* 예시 6: 복잡한 애니메이션 */
+        .box-complex {
+            width: 100px;
+            height: 100px;
+            background-color: #34495e;
+            margin: 0 auto;
+            position: relative;
+            animation: move 4s infinite alternate;
+        }
+
+        
+        @keyframes move {
+            0% {
+                transform: translateX(-50px) rotate(0deg);
+                background-color: #34495e;
+                border-radius: 30%;
+            }
+            25% {
+                transform: translateX(0) rotate(90deg);
+                background-color: #3498db;
+            }
+            50% {
+                transform: translateX(50px) rotate(180deg);
+                background-color: #2ecc71;
+                border-radius: 50%;
+            }
+            75% {
+                transform: translateX(0) rotate(270deg);
+                background-color: #e74c3c;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateX(-50px) rotate(360deg);
+                background-color: #f39c12;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 애니메이션 예시</h1>
+    
+    <div class="container">
+        <div class="example">
+            <h2>확대/축소 (hover)</h2>
+            <div class="box-scale"><img src="heart.png.png" alt="하트"></div>
+            <p>마우스를 올려보세요</p>
+        </div>
+        
+        <div class="example">
+            <h2>회전 (hover)</h2>
+            <div class="box-rotate"><img src="photo.png.png" alt="바람개비"></div>
+            <p>마우스를 올려보세요</p>
+        </div>
+        
+        <div class="example">
+            <h2>이동 (hover)</h2>
+            <div class="box-translate"><img src="run.png.png" alt="달리기"></div>
+            <p>마우스를 올려보세요</p>
+        </div>
+        
+        <div class="example">
+            <h2>자동 펄스 애니메이션</h2>
+            <div class="box-keyframes"><img src="photo.png.png" alt="바람개비"></div>
+            <p>자동으로 실행됩니다</p>
+        </div>
+        
+        <div class="example">
+            <h2>다중 변환 (hover)</h2>
+            <div class="box-multiple"></div>
+            <p>마우스를 올려보세요</p>
+        </div>
+        
+        <div class="example">
+            <h2>복잡한 애니메이션</h2>
+            <div class="box-complex"></div>
+            <p>자동으로 실행됩니다</p>
+        </div>
+    </div>
+</body>
+</html>
